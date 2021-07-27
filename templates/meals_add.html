@@ -3,52 +3,63 @@
 {% endblock title%}
 {% block content%}
 <div class="container">
-  <h1>Meals</h1>
-  {% for category in ['Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
-            <a href="{{url_for('filter', category = category)}}">{{category}}</a>
-            {% endfor %}
-  <div class="row">
-    {% for food in data.foods %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{food.meal}}</h5>
-            <ul>
-            {% for ingredient in food.ingredients %}
-                <li>{{ingredient}}</li>
-            {% endfor %}
-            </ul>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{food._id}}">
-            Delete
-            </button>
+    <h1>Meals</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        {% for meal in ['Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
+        <a class="btn btn-outline-success" href="{{url_for('filter', meal = meal)}}">{{ meal }}</a>
+        {% endfor %}
+    </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal{{food._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete?
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for food in data.foods %}
+        <div class="col-4">
+            <div class="card h-100">
+                <div class="card-body">
                     <h5 class="card-title">{{food.meal}}</h5>
                     <ul>
-                    {% for ingredient in food.ingredients %}
+                        {% for ingredient in food.ingredients %}
                         <li>{{ingredient}}</li>
-                    {% endfor %}
+                        {% endfor %}
                     </ul>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a class="btn btn-success" href="{{url_for('meal_delete',meal_id=food._id)}}">Delete</a>
-                </div>
-                </div>
+                    <!-- Button trigger modal -->
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal{{food._id}}">
+                            Delete
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{food._id}}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete?
+                                    <h5 class="card-title">{{food.meal}}</h5>
+                                    <ul>
+                                        {% for ingredient in food.ingredients %}
+                                        <li>{{ingredient}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <a class="btn btn-success"
+                                        href="{{url_for('meal_delete',meal_id=food._id)}}">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            </div>
-            
+
         </div>
+
+        {% endfor %}
     </div>
-    {% endfor %}
-  </div>
 </div>
 {% endblock content%}

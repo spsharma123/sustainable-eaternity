@@ -84,4 +84,8 @@ p {
     background-color: red;
 }
 
+.btn-custom .btn {
+    color: #eeeeee;
+    background-color: red;
+}
 

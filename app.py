@@ -81,3 +81,10 @@ def meal_delete(meal_id):
     meal=mongo.db.meals.delete_one(query)
     return redirect(url_for('meals_add'))
 
+@app.route('/filters/<meal>')
+def filter(meal):
+    foods = mongo.db.meals.find({'meal' : meal})
+    data = {
+    'foods': foods,
+    }
+    return render_template('meals_add.html', data=data)
