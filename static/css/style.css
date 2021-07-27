@@ -1,1 +1,58 @@
 /* Write custom CSS styling here */
+body {
+    background-color: #90A955;
+}
+h1 {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.about {
+    background-color: #4F772D;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    color: #ECF39E
+}
+
+.navbar-green {
+    background-color: #31572C;
+}
+
+.nav-link {
+    color: #ECF39E;
+}
+
+.nav-item {
+    color: #ECF39E;
+}
+
+.navbar-brand {
+    color: #ECF39E !important;
+}
+
+.carousel-caption{
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+}
+.caption{
+    font-size: 750%
+}
+
+img {
+    opacity: 50%;
+}

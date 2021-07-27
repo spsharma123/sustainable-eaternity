@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block title%}
+{% endblock title%}
+{% block content%}
+<div class="container">
+  <h1>Meals</h1>
+  <div class="row">
+    {% for food in data.foods %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{food.meal}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{food.ingredients}}</h6>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content%}

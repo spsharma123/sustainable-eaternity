@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% block title%}
+Plan Your Meal
+{% endblock title%}
+{% block content%}
+<div class="container">
+  <h1>Add a Meal</h1>
+  <p><strong>Select your ingredients per each meal. You may control-click (Windows) or command-click (Mac) to select more than one.</strong></p>
+  <div class="col">
+    <form method="POST" action="{{url_for('meals_add')}}">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="Meal">Meal</label>
+          <select class="form-control" name="Meal">
+            {% for meal in ['Breakfast','Lunch','Dinner','Snack'] %}
+            <option>{{meal}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="Ingredients">Ingredient</label>
+          <select multiple size="6" class="form-control" name="Ingredients">
+            {% for ingredient in data.meals_view %}
+            <option>{{ingredient}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-12">
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content%}
