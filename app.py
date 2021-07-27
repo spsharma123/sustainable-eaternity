@@ -6,7 +6,7 @@ from flask import url_for
 from flask import redirect
 ## Additional Imports
 import datetime as dt
-
+from bson.objectid import ObjectId
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = dt.datetime.now()
@@ -46,7 +46,7 @@ def meals_view():
 @app.route('/sus_ingredients')
 def sus_ingredients():
     data = {
-    'sus_ingredients': mongo.db.sus_ingredients.find({}),
+        'sus_ingredients':model.get_foods_list()
     }
     return render_template('sus_ingredients.html', data=data)
 
@@ -68,3 +68,11 @@ def meals_add():
         }
         mongo.db.meals.insert(meal)
         return redirect(url_for('meals_add'))
+
+@app.route('/meal_delete/<meal_id>')
+def meal_delete(meal_id):
+    meal_id=ObjectId(meal_id)
+    query={"_id":meal_id}
+    meal=mongo.db.meals.delete_one(query)
+    return redirect(url_for('meals_add'))
+

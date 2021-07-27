@@ -1,7 +1,14 @@
 {% extends 'base.html'%}
 {% block title%}List of Locations{% endblock %}
 {% block content%}
-
-<h1>Sustainable Foods</h1>
-
+<div class="container">
+    <h1>Sustainable Foods</h1>
+    {% for ingredient in data.sus_ingredients %}
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ingredient}}</h5>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

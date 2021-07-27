@@ -55,12 +55,9 @@ p {
 img {
     opacity: 50%;
 }
-<<<<<<< HEAD
 .about{
-    font-size:150%
+    font-size: 150%
 }
-=======
-
 .dropdown-menu-dark {
     background-color: #31572C !important;
 }
@@ -68,4 +65,3 @@ img {
 .nav-link{
     color: white;
 }
->>>>>>> 923499ac7226fb897f32a96c7def78d2fdba9ded
