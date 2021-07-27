@@ -4,14 +4,17 @@ from flask import render_template
 from flask import request
 from flask import url_for
 from flask import redirect
+from flask import flash
+from flask import session
 ## Additional Imports
 import datetime as dt
-
+import os
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = dt.datetime.now()
+app.secret_key = os.urandom(24)
 import model as model
-import os
+
 from dotenv import load_dotenv
 load_dotenv()
 from flask_pymongo import PyMongo
@@ -28,6 +31,7 @@ mongo = PyMongo(app)
 def index():
     data = {
     }
+    flash("Carbon emissions too high! Reduce ingredients!!", "danger")
     return render_template('index.html', data=data)
 
 @app.route('/about_us')
