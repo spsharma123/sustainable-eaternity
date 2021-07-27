@@ -52,8 +52,8 @@ p {
 .caption{
     font-size: 750%
 }
-img {
-    opacity: 50%;
+.opaque-img {
+    opacity: 75%;
 }
 
 .about {
@@ -64,6 +64,7 @@ img {
     background-color: #31572C !important;
 }
 
-.nav-link{
-    color: white;
+nav a:hover {
+  color: white;
 }
+

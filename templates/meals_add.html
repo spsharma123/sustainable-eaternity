@@ -4,6 +4,9 @@
 {% block content%}
 <div class="container">
   <h1>Meals</h1>
+  {% for category in ['Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
+            <a href="{{url_for('filter', category = category)}}">{{category}}</a>
+            {% endfor %}
   <div class="row">
     {% for food in data.foods %}
     <div class="card" style="width: 18rem;">
