@@ -56,6 +56,10 @@ img {
     opacity: 50%;
 }
 
+.about {
+    font-size: 150%;
+}
+
 .dropdown-menu-dark {
     background-color: #31572C !important;
 }
