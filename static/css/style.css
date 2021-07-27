@@ -52,7 +52,9 @@ p {
 .caption{
     font-size: 750%
 }
-
 img {
     opacity: 50%;
+}
+.about{
+    font-size:150%
 }
