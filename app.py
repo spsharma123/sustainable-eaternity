@@ -8,6 +8,7 @@ from flask import flash
 from flask import session
 ## Additional Imports
 import datetime as dt
+import math
 from bson.objectid import ObjectId
 import os
 # -- Initialization section --
@@ -43,7 +44,8 @@ def about_us():
 @app.route('/meals_view')
 def meals_view():
     data = {
-        'meals_view':model.get_foods_list()
+        'meals_view':model.get_foods_list(),
+        'foods_dict': model.foods_dict
     }
     flash("Carbon emissions too high! Consider reducing non-vegetarian ingredients", "danger")
     return render_template('meals_view.html', data=data)
