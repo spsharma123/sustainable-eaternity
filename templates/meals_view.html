@@ -19,7 +19,7 @@ Plan Your Meal
         </div>
         <div class="form-group col-6">
           <label for="Ingredients">Ingredient</label>
-          <select multiple size="6" class="form-control" name="Ingredients">
+          <select multiple size="10" class="form-control" name="Ingredients">
             {% for ingredient in data.meals_view %}
             <option>{{ingredient}}</option>
             {% endfor %}

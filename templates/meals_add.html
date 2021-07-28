@@ -22,39 +22,37 @@
                         {% endfor %}
                     </ul>
                 </div>
-                    <!-- Button trigger modal -->
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal{{food._id}}">
-                            Delete
-                        </button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal{{food._id}}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure you want to delete?
-                                    <h5 class="card-title">{{food.meal}}</h5>
-                                    <ul>
-                                        {% for ingredient in food.ingredients %}
-                                        <li>{{ingredient}}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <a class="btn btn-success"
-                                        href="{{url_for('meal_delete',meal_id=food._id)}}">Delete</a>
-                                </div>
+                <!-- Button trigger modal -->
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal{{food._id}}">
+                        Delete
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{food._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete?
+                                <h5 class="card-title">{{food.meal}}</h5>
+                                <ul>
+                                    {% for ingredient in food.ingredients %}
+                                    <li>{{ingredient}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a class="btn btn-success" href="{{url_for('meal_delete',meal_id=food._id)}}">Delete</a>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
 
         </div>
