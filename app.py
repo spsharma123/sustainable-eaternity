@@ -51,7 +51,8 @@ def meals_view():
 @app.route('/sus_ingredients')
 def sus_ingredients():
     data = {
-        'sus_ingredients':model.get_foods_list()
+        'sus_ingredients':model.get_foods_list(),
+        'foods_dict': model.foods_dict
     }
     return render_template('sus_ingredients.html', data=data)
 
