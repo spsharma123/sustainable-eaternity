@@ -9,8 +9,11 @@ with app.open_resource("static/data/Food_Production.csv") as f:
     foods_df = foods_df.set_index("Food product")
     foods_dict = foods_df.to_dict('index')
     foods_list = list(foods_dict.keys())
-    
 
 def get_foods_list():
     return sorted(foods_list)
 
+def return_total_emissions(food):
+    return round(foods_dict.get(food)['Total_emissions'], 3)
+
+# print(return_total_emissions('Milk'))

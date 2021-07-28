@@ -21,7 +21,7 @@ Plan Your Meal
           <label for="Ingredients">Ingredient</label>
           <select multiple size="10" class="form-control" name="Ingredients">
             {% for ingredient in data.meals_view %}
-            <option>{{ingredient}}</option>
+            <option>{{ingredient}} : {{data['foods_dict'][ingredient]['Total_emissions']}} kg of CO2 </option>
             {% endfor %}
           </select>
         </div>
