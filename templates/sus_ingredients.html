@@ -9,7 +9,7 @@
             <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">{{ingredient}}</h5>
-                        <p class="card-text">{{data['foods_dict'][ingredient]['Total_emissions']}}</p>
+                        <p class="card-text">{{data['foods_dict'][ingredient]['Total_emissions']|round(3, 'floor') }} kg of CO2</p>
                     </div>
             </div>
         </div>
