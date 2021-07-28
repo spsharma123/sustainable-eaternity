@@ -47,7 +47,6 @@ def meals_view():
         'meals_view':model.get_foods_list(),
         'foods_dict': model.foods_dict
     }
-    flash("Carbon emissions too high! Consider reducing non-vegetarian ingredients", "danger")
     return render_template('meals_view.html', data=data)
 
 @app.route('/sus_ingredients')
@@ -67,14 +66,21 @@ def meals_add():
         return render_template('meals_add.html', data=data)
     else:
         form = request.form
+        ingredients = form.getlist('Ingredients')
+        print(ingredients)
         meal = {
         'meal':form['Meal'],
-        'ingredients':form.getlist('Ingredients'),
+        'ingredients': ingredients,
+        'total_emissions' : model.return_total_emissions(ingredients)
         }
         data = {
         'meal':meal
         }
         mongo.db.meals.insert(meal)
+        if meal['total_emissions'] > 20:
+            flash("Carbon emissions too high!", "danger")
+        if "Beef (beef herd)" in [ingredient.split(':')[0].strip() for ingredient in ingredients]:
+            flash("Consider reducing non-vegetarian ingredients", "danger")
         return redirect(url_for('meals_add'))
 
 @app.route('/meal_delete/<meal_id>')
