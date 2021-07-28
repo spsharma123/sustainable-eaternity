@@ -13,5 +13,6 @@ with app.open_resource("static/data/Food_Production.csv") as f:
 def get_foods_list():
     return sorted(foods_list)
 
-def return_total_emissions(food):
-    return foods_dict.get(food)['Total_emissions']
+# def return_total_emissions(food):
+#     print(foods_dict)
+#     return foods_dict.get(food)['Total_emissions']
