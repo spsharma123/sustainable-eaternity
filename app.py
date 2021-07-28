@@ -83,8 +83,13 @@ def meal_delete(meal_id):
 
 @app.route('/filters/<meal>')
 def filter(meal):
-    foods = mongo.db.meals.find({'meal' : meal})
+    if meal=='All':
+       foods = mongo.db.meals.find({})
+    else:
+        foods = mongo.db.meals.find({'meal' : meal})
     data = {
     'foods': foods,
     }
     return render_template('meals_add.html', data=data)
+
+

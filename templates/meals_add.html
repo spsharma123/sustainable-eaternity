@@ -5,7 +5,7 @@
 <div class="container">
     <h1>Meals</h1>
     <div class="btn-group" role="group" aria-label="Basic example">
-        {% for meal in ['Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
+        {% for meal in ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
         <a class="btn btn-outline-success" href="{{url_for('filter', meal = meal)}}">{{ meal }}</a>
         {% endfor %}
     </div>
