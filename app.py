@@ -32,7 +32,6 @@ mongo = PyMongo(app)
 def index():
     data = {
     }
-    flash("Carbon emissions too high! Reduce ingredients!!", "danger")
     return render_template('index.html', data=data)
 
 @app.route('/about_us')
@@ -46,6 +45,7 @@ def meals_view():
     data = {
         'meals_view':model.get_foods_list()
     }
+    flash("Carbon emissions too high! Consider reducing non-vegetarian ingredients", "danger")
     return render_template('meals_view.html', data=data)
 
 @app.route('/sus_ingredients')
