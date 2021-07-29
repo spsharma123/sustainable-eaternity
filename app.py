@@ -101,4 +101,10 @@ def filter(meal):
     }
     return render_template('meals_add.html', data=data)
 
+@app.route('/meal/<meal_id>')
+def meal_view(meal_id): 
+    meal_id=ObjectId(meal_id)
+    #turn meal id into an object ID, go to database, find a single meal, and write a template that shows a single meal. Figure out how to make it a form that goes to the route of meals_update.
+    #form on this page = form on meal creation
+
 
