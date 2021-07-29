@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
-{% block title%}List of Locations{% endblock %}
+{% block title%}List of Ingredients {% endblock %}
 {% block content%}
+<br> 
+<h1>Sustainable Foods: Foods Emitting the Least CO2!</h1> <br>
 <div class="container">
-    <div class="row">
-        <h1>Sustainable Foods</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
         {% for ingredient in data.sus_ingredients %}
         <div class="col-3">
             <div class="card h-100">
@@ -19,6 +20,7 @@
 </div>
 <p> 
     <br>
+    <span style="font-size:150%"> Check out this page from GreenerIdeal.com with recipes using these sustainable ingredients and many more! </span>
     <iframe width="900" height="1000" src="https://greenerideal.com/recipes/">
 </iframe>
 </p>
