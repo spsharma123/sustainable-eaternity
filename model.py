@@ -27,6 +27,8 @@ def return_total_emissions(ingredients):
         ingredient = ingredient.strip()
         temporary = foods_dict.get(ingredient)['Total_emissions']
         total_emissions += temporary
+        print(total_emissions)
     return total_emissions
-
-# print(return_total_emissions('Milk'))
+    
+# for food in ingredients: 
+#     print(return_total_emissions(food))

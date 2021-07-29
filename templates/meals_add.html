@@ -15,9 +15,9 @@
         <div class="col-4">
             <div class="card h-100">
                 <div class="card-body">
-                    
+
                     <h5 class="card-title">{{food.nameofmeal }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"> {{ food.meal }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{ food.meal }}</h6>
                     <ul>
                         {% for ingredient in food.ingredients %}
                         <li>{{ingredient}}</li>
@@ -26,10 +26,13 @@
                 </div>
                 <!-- Button trigger modal -->
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    <div> 
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
                         data-bs-target="#exampleModal{{food._id}}">
                         Delete
                     </button>
+                     {{food.total_emissions}} <span style="text-align: right"> total kg of CO2 </span> 
+                    </div>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{food._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"

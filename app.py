@@ -63,11 +63,12 @@ def meals_add():
         data = {
             "foods":mongo.db.meals.find({})
         }
+        # print(dict(data)['foods'])
         return render_template('meals_add.html', data=data)
     else:
         form = request.form
         ingredients = form.getlist('Ingredients')
-        print(ingredients)
+        #print(ingredients)
         meal = {
         'nameofmeal':form['nameofmeal'],
         'meal':form['Meal'],
@@ -75,7 +76,8 @@ def meals_add():
         'total_emissions' : model.return_total_emissions(ingredients)
         }
         data = {
-        'meal':meal
+        'meal':meal,
+        'total_emissions': model.return_total_emissions(ingredients)
         }
         mongo.db.meals.insert(meal)
         for food in model.error_foods_list:
@@ -104,6 +106,12 @@ def filter(meal):
 @app.route('/meal/<meal_id>')
 def meal_view(meal_id): 
     meal_id=ObjectId(meal_id)
+    meal = mongo.db.meals.find({'meal' : meal_id})
+    data = {
+        'meal' : meal,
+    }
+    return render_template
+
     #turn meal id into an object ID, go to database, find a single meal, and write a template that shows a single meal. Figure out how to make it a form that goes to the route of meals_update.
     #form on this page = form on meal creation
 
