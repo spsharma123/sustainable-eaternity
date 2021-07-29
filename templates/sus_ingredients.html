@@ -7,13 +7,20 @@
         {% for ingredient in data.sus_ingredients %}
         <div class="col-3">
             <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ingredient}}</h5>
-                        <p class="card-text">{{data['foods_dict'][ingredient]['Total_emissions']|round(3, 'floor') }} kg of CO2</p>
-                    </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ingredient}}</h5>
+                    <p class="card-text">{{data['foods_dict'][ingredient]['Total_emissions']|round(3, 'floor') }} kg of
+                        CO2</p>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+<p> 
+    <br>
+    <iframe width="900" height="1000" src="https://greenerideal.com/recipes/">
+</iframe>
+</p>
+
 {% endblock %}
