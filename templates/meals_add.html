@@ -4,11 +4,13 @@
 {% block content%}
 <div class="container">
     <h1>Meals</h1>
+    <p>
     <div class="btn-group" role="group" aria-label="Basic example">
         {% for meal in ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack'] %}
         <a class="btn btn-outline-success" href="{{url_for('filter', meal = meal)}}">{{ meal }}</a>
         {% endfor %}
     </div>
+    </p>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
         {% for food in data.foods %}
@@ -26,12 +28,12 @@
                 </div>
                 <!-- Button trigger modal -->
                 <div class="card-footer">
-                    <div> 
+                    <div>
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal{{food._id}}">
-                        Delete
-                    </button>
-                     {{food.total_emissions}} <span style="text-align: right"> total kg of CO2 </span> 
+                            data-bs-target="#exampleModal{{food._id}}">
+                            Delete
+                        </button>
+                        {{food.total_emissions|round(3, 'floor')}} <span style="text-align: right"> total kg of CO2 </span>
                     </div>
                 </div>
                 <!-- Modal -->
