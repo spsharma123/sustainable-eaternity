@@ -13,13 +13,13 @@ Plan Your Meal
                 <div class="form-group col-6">
                     <label for="exampleFormControlInput1">Name of Meal</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Ex. Grilled Cheese">
+                        placeholder="Ex. Grilled Cheese" name="nameofmeal">
                 </div>
                 <div class="form-group col-6">
                     <label for="Meal">Meal</label>
                     <select class="form-control" name="Meal">
                         {% for meal in ['Breakfast','Lunch','Dinner','Snack'] %}
-                        <option>{{meal}}</option>
+                            <option>{{meal}}</option>
                         {% endfor %}
                     </select>
                 </div>

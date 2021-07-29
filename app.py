@@ -69,6 +69,7 @@ def meals_add():
         ingredients = form.getlist('Ingredients')
         print(ingredients)
         meal = {
+        'nameofmeal':form['nameofmeal'],
         'meal':form['Meal'],
         'ingredients': ingredients,
         'total_emissions' : model.return_total_emissions(ingredients)
@@ -77,7 +78,6 @@ def meals_add():
         'meal':meal
         }
         mongo.db.meals.insert(meal)
-
         for food in model.error_foods_list:
             if food in [ingredient.split(':')[0].strip() for ingredient in ingredients]:
                 flash(f"Carbon emissions too high! Consider removing {food} from your meal; it'll help the environment.", "danger")

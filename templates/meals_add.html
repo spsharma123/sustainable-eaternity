@@ -16,8 +16,8 @@
             <div class="card h-100">
                 <div class="card-body">
                     
-                    <h5 class="card-title">{{food.meal}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted"> {{ food.nameofmeal }}</h6>
+                    <h5 class="card-title">{{food.nameofmeal }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{ food.meal }}</h6>
                     <ul>
                         {% for ingredient in food.ingredients %}
                         <li>{{ingredient}}</li>
@@ -26,7 +26,7 @@
                 </div>
                 <!-- Button trigger modal -->
                 <div class="card-footer">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
                         data-bs-target="#exampleModal{{food._id}}">
                         Delete
                     </button>
